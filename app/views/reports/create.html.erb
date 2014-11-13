@@ -1,10 +1,35 @@
-<h1>Your Score Report</h1>
+<div class="container">
+
+<h1>Score Report</h1></br>
 	
-	<p>Your Reading Score is <%= @report.scale_reading  %> </p>
-	<p><%= reading_personal %></p>
-
-	<p>Your Math Score is <%= @report.scale_math %></p>
-	<p><%= math_personal %></p>
-
-	<p>Your Writing Score will fall between <%= @w_bottom_range %> and <%= @w_top_range %></p>
-	<p><%= writing_personal %></p>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3>Your Reading Score is <%= @report.scale_reading  %></h3>
+				</div>
+				<div class="panel-body">
+					<p><%= reading_personal %></p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3>Your Math Score is <%= @report.scale_math %></h3>
+				</div>
+				<div class="panel-body">
+					<p><%= math_personal %></p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3>Your Writing Score is between <%= @w_bottom_range %> and <%= @w_top_range %></h3>
+				</div>
+				<div class="panel-body">
+					<p><%= writing_personal %></p>
+				</div>
+			</div>
+		</div>

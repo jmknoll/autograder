@@ -1,27 +1,42 @@
 <div class="container">
 
 	<div class="row">
-		<p>Input Score Here</p>
+		<h1></h1>
 
-		<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3>SAT Score Report Generator</h3>
+				</div>
+					<div class="panel-body">
 
-			<%= form_for @report do |f| %>
+						<%= form_for @report do |f| %>
+						
+						<div class="form-group">
+							<%= f.label(:reading_score, "Reading") %>
+							<%= f.number_field(:reading_score, in: 0..67, class: "form-control") %>
+						</div>
 
-				<%= f.label(:reading_score, "Reading") %>
-				<%= f.number_field(:reading_score, in: 0..67) %>
+						<div class="form-group">
+							<%= f.label(:math_score, "Math") %>
+							<%= f.number_field(:math_score, in: -6..54, class: "form-control") %>
+						</div>
 
-				<%= f.label(:math_score, "Math") %>
-				<%= f.number_field(:math_score, in: -6..54) %>
+						<div class="form-group">
+							<%= f.label(:writing_score, "Writing") %>
+							<%= f.number_field(:writing_score, in: -2..49, class: "form-control") %>
+						</div>
 
-				<%= f.label(:writing_score, "Writing") %>
-				<%= f.number_field(:writing_score, in: -2..49) %>
+						<div class="form-group">
+							<%= f.label(:essay_score, "Essay") %>
+							<%= f.number_field(:essay_score, in: 2..12, class: "form-control") %>
+						</div>
 
-				<%= f.label(:essay_score, "Essay") %>
-				<%= f.number_field(:essay_score, in: 2..12) %>
-
-				<%= f.submit "Get Report" %>
-
-			<% end %>
+						<div class="form-group">
+							<%= f.submit "Get Report", :class => 'btn btn-lg btn-primary full-width' %>
+						</div>
+					<% end %>
+				</div>
 		</div>
 	</div>
 </div>
