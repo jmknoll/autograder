@@ -6,6 +6,8 @@ class ReportsController < ApplicationController
 
 	def create
 		@report = Report.new(report_params)
+		@w_bottom_range = (@report.scale_writing/10).floor * 10
+		@w_top_range = (@report.scale_writing/10).ceil * 10
 	end
 
 	private
