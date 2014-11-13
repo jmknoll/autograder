@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-	attr_accessor :reading_score, :writing_score, :math_score
+	attr_accessor :reading_score, :writing_score, :math_score, :essay_score
 
 	def scale_reading
 
@@ -13,7 +13,6 @@ class Report < ActiveRecord::Base
 		raw_score = self.reading_score.to_i
 		index = raw.index(raw_score)
 		scaled[index]
-
 	end	
 
 	def scale_math
@@ -23,5 +22,15 @@ class Report < ActiveRecord::Base
 		index = raw.index(raw_score)
 		scaled[index]
 	end
-	
+
+	def scale_writing
+		#estimated score conversion incorporating essay score
+		raw_score_multiple = self.writing_score.to_i
+		raw_score_essay = self.essay_score.to_i
+		scaled_essay = (80*raw_score_essay)-160
+		scaled_mc = ((600*raw_score_multiple)/49)+200
+		weighted_mc = (scaled_mc * 1.0) * 0.72
+		weighted_essay = (scaled_essay * 1.0) * 0.28
+		weighted_mc + weighted_essay
+	end
 end

@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
 	private
 
 	def report_params
-		params.require(:report).permit(:reading_score, :math_score, :writing_score)
+		params.require(:report).permit(:reading_score, :math_score, :writing_score, :essay_score)
 	end
 end
 
