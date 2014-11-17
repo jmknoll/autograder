@@ -31,7 +31,6 @@ gem 'autoprefixer-rails'
 
 group :development, :test do 
 	gem 'rspec-rails'
-	gem 'sqlite3'
 	gem 'spring'
 end
 
@@ -39,6 +38,8 @@ group :production do
 	gem 'pg'
 	gem 'rails_12factor'
 end
+
+ruby "2.1.3"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
